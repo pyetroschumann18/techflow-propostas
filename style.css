@@ -1,0 +1,107 @@
+:root {
+  color-scheme: dark;
+  --ink: #e8e8e8;
+  --muted: #b6b6b6;
+  --line: #555;
+  --canvas: #151515;
+  --blue: #7658c9;
+  --purple: #7658c9;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; color: var(--ink); background: var(--canvas); }
+button, input, select, textarea { font: inherit; }
+a { color: inherit; }
+
+.site-header {
+  height: 78px;
+  padding: 0 clamp(24px, 4vw, 58px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #1e1e1e;
+  border-bottom: 1px solid #383838;
+}
+.brand { color: #a88bf0; font-size: 25px; font-weight: 700; text-decoration: none; }
+.brand-dot { color: #a88bf0; }
+.site-header nav { display: flex; gap: clamp(20px, 2.5vw, 40px); }
+.site-header nav a { font-size: 13px; font-weight: 400; text-decoration: none; }
+.site-header nav a:hover, .site-footer a:hover { text-decoration: underline; }
+.color-band { height: 78px; background: #5f438f; }
+
+.proposal-area { padding: 74px 20px 62px; }
+.proposal-card {
+  max-width: 610px;
+  margin: 0 auto;
+  padding: 39px 38px 36px;
+  border: 2px solid #644797;
+  border-radius: 2px;
+  background: #252525;
+}
+.card-intro { text-align: center; margin-bottom: 32px; }
+.card-intro h1 { margin: 0 0 10px; color: #b197f2; font-size: clamp(27px, 3vw, 34px); line-height: 1.15; font-weight: 700; }
+.card-intro p { max-width: 445px; margin: 0 auto; color: var(--muted); font-size: 13px; line-height: 1.6; }
+.field-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 21px 18px; }
+.field { margin-bottom: 21px; }
+.field-grid .field { margin-bottom: 0; }
+.field-grid + .field { margin-top: 21px; }
+.field label { display: block; margin-bottom: 9px; font-size: 13px; font-weight: 700; }
+.field label span { color: #dc91b1; }
+.field input, .field select, .field textarea {
+  display: block;
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  padding: 12px 13px;
+  background: #171717;
+  color: var(--ink);
+  font-size: 13px;
+  line-height: 1.4;
+}
+.field input::placeholder, .field textarea::placeholder { color: #999; }
+.field select:invalid { color: #aaa; }
+.field textarea { min-height: 112px; resize: vertical; }
+.field input:focus, .field select:focus, .field textarea:focus, .opt-in:focus-within, button:focus-visible, a:focus-visible { outline: 2px solid #ae8cff; outline-offset: 2px; }
+.field [aria-invalid="true"] { border-color: #f083a1; }
+.opt-in { display: flex; align-items: center; gap: 10px; min-height: 45px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 2px; background: #202020; color: #bbb; font-size: 11px; line-height: 1.35; cursor: pointer; }
+.opt-in input { width: 16px; height: 16px; margin: 0; accent-color: var(--blue); flex: none; }
+.submit-button, .copy-button { display: block; width: 100%; border: 1px solid #9371dd; border-radius: 2px; padding: 14px 20px; color: #fff; background: #674aa7; font-size: 12px; font-weight: 700; text-transform: uppercase; cursor: pointer; }
+.submit-button { margin-top: 19px; }
+.submit-button:hover, .copy-button:hover { background: #7658bd; }
+.form-note { margin: 12px 0 0; color: var(--muted); text-align: center; font-size: 11px; line-height: 1.5; }
+.form-status { margin: 10px 0 0; color: #f5a1b8; font-size: 12px; font-weight: 600; }
+.form-status:empty { display: none; }
+.result { margin-top: 27px; border-top: 1px solid var(--line); padding-top: 22px; }
+.result[hidden] { display: none; }
+.result h2 { margin: 0 0 5px; color: #b197f2; font-size: 20px; }
+.result p { margin: 0 0 13px; color: var(--muted); font-size: 12px; }
+.result textarea { width: 100%; padding: 12px; border: 1px solid var(--line); border-radius: 2px; resize: vertical; background: #171717; color: var(--ink); font-size: 12px; line-height: 1.5; }
+.copy-button { margin-top: 11px; }
+
+.site-footer { background: #0c0c0c; color: #fff; border-top: 1px solid #444; }
+.footer-inner { max-width: 1240px; margin: 0 auto; padding: 46px 24px 54px; display: grid; grid-template-columns: 1.15fr 1fr 1.2fr .75fr; gap: 38px; }
+.site-footer h2 { margin: 0 0 19px; font-size: 17px; font-weight: 700; }
+.site-footer p, .site-footer a { margin: 0 0 13px; color: #aaa; font-size: 13px; line-height: 1.7; text-decoration: none; }
+.site-footer ul { margin: 0; padding: 0; list-style: none; }
+.site-footer li { margin-bottom: 10px; }
+
+@media (max-width: 700px) {
+  .site-header { height: 68px; padding: 0 20px; }
+  .brand { font-size: 22px; }
+  .site-header nav { gap: 13px; }
+  .site-header nav a { font-size: 11px; }
+  .color-band { height: 57px; }
+  .proposal-area { padding: 40px 15px 48px; }
+  .proposal-card { padding: 32px 22px; }
+  .footer-inner { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 30px; }
+}
+@media (max-width: 480px) {
+  .site-header nav a:nth-child(2) { display: none; }
+  .field-grid { grid-template-columns: 1fr; gap: 0; }
+  .field-grid .field { margin-bottom: 19px; }
+  .field-grid + .field { margin-top: 0; }
+  .footer-inner { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
